@@ -1,5 +1,7 @@
 package domain
 
+import "errors"
+
 var orientationToString = map[Orientation]string{
 	North: "N",
 	East:  "E",
@@ -50,5 +52,10 @@ func (o Orientation) String() string {
 }
 
 func OrientationFromString(s string) (Orientation, error) {
-	return stringToOrientation[s], nil
+	v, ok := stringToOrientation[s]
+
+	if !ok {
+		return 0, errors.New("invalid orientation")
+	}
+	return v, nil
 }

@@ -32,6 +32,14 @@ func World(scanner *bufio.Scanner) (*domain.World, error) {
 		return nil, fmt.Errorf("parsing maxY: %w", err)
 	}
 
+	if maxX < 0 {
+		return nil, fmt.Errorf("negative maxX")
+	}
+
+	if maxY < 0 {
+		return nil, fmt.Errorf("negative maxY")
+	}
+
 	world := domain.NewWorld(maxX, maxY)
 	return world, nil
 }
