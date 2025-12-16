@@ -30,3 +30,14 @@ func (o Orientation) ForwardDelta() (dx, dy int) {
 	}
 	return 0, 0
 }
+
+var stringToOrientation = map[string]Orientation{
+	"N": North,
+	"E": East,
+	"S": South,
+	"W": West,
+}
+
+func OrientationFromString(s string) (Orientation, error) {
+	return stringToOrientation[s], nil
+}
