@@ -14,3 +14,8 @@ func NewRobot(x, y int, orientation Orientation) *Robot {
 		Lost:        false,
 	}
 }
+
+type RobotRun struct {
+	Robot    *Robot
+	Commands []Command
+}
