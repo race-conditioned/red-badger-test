@@ -1,5 +1,19 @@
 package domain
 
+var orientationToString = map[Orientation]string{
+	North: "N",
+	East:  "E",
+	South: "S",
+	West:  "W",
+}
+
+var stringToOrientation = map[string]Orientation{
+	"N": North,
+	"E": East,
+	"S": South,
+	"W": West,
+}
+
 type Orientation int
 
 const (
@@ -31,11 +45,8 @@ func (o Orientation) ForwardDelta() (dx, dy int) {
 	return 0, 0
 }
 
-var stringToOrientation = map[string]Orientation{
-	"N": North,
-	"E": East,
-	"S": South,
-	"W": West,
+func (o Orientation) String() string {
+	return orientationToString[o]
 }
 
 func OrientationFromString(s string) (Orientation, error) {

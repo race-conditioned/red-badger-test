@@ -30,7 +30,10 @@ func main() {
 	sim := &simulator.Simulator{}
 
 	for _, robotRun := range runs {
-		fmt.Println("running robot")
 		sim.RunRobot(robotRun.Robot, world, robotRun.Commands)
+	}
+
+	for _, robotRun := range runs {
+		fmt.Println(robotRun.Robot.String())
 	}
 }

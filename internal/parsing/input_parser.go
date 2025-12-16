@@ -47,7 +47,6 @@ func Robots(scanner *bufio.Scanner) ([]domain.RobotRun, error) {
 			break
 		}
 
-		log.Printf("Parsed robot: %+v, instructions: %s\n", robot, instructions)
 		commands := parseCommands(instructions)
 
 		runs = append(runs, domain.RobotRun{
